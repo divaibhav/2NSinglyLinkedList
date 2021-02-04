@@ -5,4 +5,5 @@ public interface SinglyLinkedListADT {
     boolean isEmpty();
     int size();
     void addLast(int element);
+    void traverse();
 }
