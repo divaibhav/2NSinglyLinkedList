@@ -43,5 +43,23 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
             size++;
         }
     }
+    //adding last element
+    //adding at end
+    //insertAtTail
+    public void addLast(int element){
+        Node node = new Node(element);
+        //for special case list is empty
+        if(isEmpty()){
+            head = node;
+            tail = node;
+            //addFirst(element)
+            size++;
+        }
+        else{
+            tail.setNext(node);
+            tail = node;
+            size++;
+        }
+    }
 
 }
