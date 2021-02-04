@@ -62,5 +62,28 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
             size++;
         }
     }
-
+    @Override
+    //traversing the linked list
+    public void traverse(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.getData() + "-->");
+            temp = temp.getNext();
+        }
+        System.out.println("null");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
