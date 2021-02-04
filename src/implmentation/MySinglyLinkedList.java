@@ -46,6 +46,7 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
     //adding last element
     //adding at end
     //insertAtTail
+    @Override
     public void addLast(int element){
         Node node = new Node(element);
         //for special case list is empty
