@@ -72,8 +72,55 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
         }
         System.out.println("null");
     }
-    
-    
+    @Override
+    public int removeFirst(){
+        //special case. when list is empty
+        if(isEmpty()){
+            return -1;//using -1 for, considering as invalid data
+        }
+         else{
+              Node response = head;
+            //specail case, when only a single node
+             if(head == tail){
+                   
+                    head = null;
+                    tail = null;
+                    size--;
+                    
+             }
+             else{
+                
+                 head = head.getNext();
+                 size--;
+             }
+             return response.getData();
+         }
+        
+    }
+    @Override
+    public int removeLast(){
+        if(isEmpty()){
+            return -1;
+        }
+        else{
+            Node temp = head;
+            Node previous = null;
+            while(temp.getNext() != null ){
+                previous = temp;
+                temp = temp.getNext();
+            }
+            //special case if there only a single node
+            if(previous == null){
+                head = null;
+                tail = null;
+                size--;
+                
+            }
+            else{
+            }
+        }
+            
+    }
     
     
     
