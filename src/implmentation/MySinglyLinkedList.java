@@ -117,7 +117,11 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
                 
             }
             else{
+                previous.setNext(null);
+                tail = previous;
+                size--;
             }
+            return temp.getData();
         }
             
     }
