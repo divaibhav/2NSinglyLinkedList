@@ -159,16 +159,94 @@ public class MySinglyLinkedList implements SinglyLinkedListADT {
         }
             
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    @Override
+    public int first() {
+      if(isEmpty()){
+          return -1; //considering -1 as invalid
+      }
+      else{
+          return head.getData();
+      }
+    }
+
+    @Override
+    public int last() {
+        if(isEmpty()){
+            return -1;//considering -1 as invalid
+        }
+        else{
+            return tail.getData();
+        }
+    }
+
+    @Override
+    public int lastWithoutTail() {
+        if(!isEmpty()){
+            Node temp = head;
+            while(temp.getNext() != null){
+                temp = temp.getNext();
+            }
+            return temp.getData();
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean addAfterGivenElement(int element, int givenElement) {
+        boolean response = false;
+        if(!isEmpty()){
+            Node temp = head;
+            while(temp != null){
+                if(temp.getData() == givenElement){
+                   break;
+                }
+                temp = temp.getNext();
+            }
+            if(temp != null) {
+                Node node = new Node(element);
+                node.setNext(temp.getNext());
+                temp.setNext(node);
+                response = true;
+                size++;
+                if(temp == tail){
+                    tail = node;
+                }
+            }
+        }
+
+        return response;
+    }
+
+    @Override
+    public boolean addBeforeGivenElement(int element, int givenElement) {
+        return false;
+    }
+    //
+    //printing in reverse using recursion
+    public void traverseRecursion(Node node){
+        if(node == null){
+            return;
+        }
+        else{
+            traverseRecursion(node.getNext());
+            System.out.print(node.getData() + ",");
+        }
+    }
+
+    public Node getHead() {
+        return head;
+    }
+    //reversing singly linked list
+    public void reversingByRecursion(Node node, Node previous){
+        if(node.getNext() == null){
+            tail = head;
+            head = node;
+            node.setNext(previous);
+        }
+        else{
+            reversingByRecursion(node.getNext(), node);
+            node.setNext(previous);
+        }
+    }
 }
